@@ -16,6 +16,7 @@ use MediaWiki\User\UserIdentityLookup;
 use MediaWiki\User\UserIdentityValue;
 use UnexpectedValueException;
 use Wikimedia\IPUtils;
+use Wikimedia\Timestamp\TimestampFormat as TS;
 
 /**
  * Log formatter for gblblock/* entries
@@ -125,10 +126,11 @@ class GlobalBlockLogFormatter extends LogFormatter {
 				}
 			}
 		} elseif ( in_array( $this->entry->getSubtype(), [ 'gblock', 'modify' ] ) ) {
-			if ( !wfIsInfinity( $params[4] ) ) {
-				// Ignoring expiry values of 'infinity', treat the expiry parameter as a datetime parameter.
-				$params[4] = Message::dateTimeParam( $params[4] );
-			}
+			$params[4] = $this->context->getLanguage()->translateBlockExpiry(
+				$params[4],
+				$this->context->getUser(),
+				(int)wfTimestamp( TS::UNIX, $this->entry->getTimestamp() )
+			);
 			// Convert the flags to a localised comma separated list
 			$flags = [];
 			if ( in_array( 'anon-only', $params[5] ) ) {

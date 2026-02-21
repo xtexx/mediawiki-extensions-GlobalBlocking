@@ -93,7 +93,7 @@ class GlobalBlockLogFormatterTest extends LogFormatterTestCase {
 					],
 				],
 				'extra' => [
-					'text' => 'Sysop globally blocked Test-globally-blocked with an expiration time of infinite',
+					'text' => 'Sysop globally blocked Test-globally-blocked with an expiration time of indefinite',
 					'api' => [ 'expiry' => 'infinite', 'flags' => [ 'allow-account-creation', 'enable-autoblock' ] ],
 				],
 			],
@@ -104,7 +104,7 @@ class GlobalBlockLogFormatterTest extends LogFormatterTestCase {
 					'params' => [ '5::expiry' => 'infinite', '6::flags' => [ 'allow-account-creation' ] ],
 				],
 				'extra' => [
-					'text' => 'Sysop globally blocked Test-globally-blocked with an expiration time of infinite ' .
+					'text' => 'Sysop globally blocked Test-globally-blocked with an expiration time of indefinite ' .
 						'(autoblock disabled)',
 					'api' => [ 'expiry' => 'infinite', 'flags' => [ 'allow-account-creation' ] ],
 				],
@@ -315,7 +315,7 @@ class GlobalBlockLogFormatterTest extends LogFormatterTestCase {
 		if ( $shouldShowAction ) {
 			$expectedName = $targetUser->getName();
 			$this->assertEquals(
-				"Sysop globally blocked $expectedName with an expiration time of infinite " .
+				"Sysop globally blocked $expectedName with an expiration time of indefinite " .
 					'(account creation disabled, autoblock disabled)',
 				trim( strip_tags( $formatter->getActionText() ) ),
 				'Action text is equal to expected text.'
@@ -387,7 +387,7 @@ class GlobalBlockLogFormatterTest extends LogFormatterTestCase {
 		$formatter = $this->getServiceContainer()->getLogFormatterFactory()->newFromRow( $row );
 		$formatter->context->setAuthority( $logViewAuthority );
 		$this->assertEquals(
-			"Sysop globally blocked $expectedName with an expiration time of infinite " .
+			"Sysop globally blocked $expectedName with an expiration time of indefinite " .
 				'(account creation disabled, autoblock disabled)',
 			trim( strip_tags( $formatter->getActionText() ) ),
 			'Action text is equal to expected text'
@@ -462,7 +462,7 @@ class GlobalBlockLogFormatterTest extends LogFormatterTestCase {
 		$formatter = $this->getServiceContainer()->getLogFormatterFactory()->newFromRow( $row );
 		$formatter->context->setAuthority( $logViewAuthority );
 		$this->assertEquals(
-			"Sysop globally blocked $expectedName with an expiration time of infinite " .
+			"Sysop globally blocked $expectedName with an expiration time of indefinite " .
 				'(account creation disabled, autoblock disabled)',
 			trim( strip_tags( $formatter->getActionText() ) ),
 			'Action text is equal to expected text'
