@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"0x010C",
+			"Escargot bleu",
 			"Gomoko",
 			"MacOS Weed",
 			"Mahabarata",
@@ -21,6 +22,7 @@
 	"apihelp-globalblock-param-reason": "La raison du blocage/déblocage.",
 	"apihelp-globalblock-param-anononly": "Spécifier cela si le blocage ne doit affecter que les utilisateurs déconnectés globalement.",
 	"apihelp-globalblock-param-allow-account-creation": "Spécifiez ceci si le blocage global ne doit pas empêcher la création de compte.",
+	"apihelp-globalblock-param-block-email": "Spécifier cette option si le blocage global doit empêcher l'utilisateur d'envoyer des courriels.",
 	"apihelp-globalblock-param-enable-autoblock": "Spécifiez ceci si le blocage global doit déclencher des blocages automatiques globaux.",
 	"apihelp-globalblock-param-modify": "Spécifier ceci si le blocage existant dans la cible doit être modifié.",
 	"apihelp-globalblock-example-1": "Bloque 192.0.2.1 indéfiniment avec la raison « utilisation abusive inter-wiki »",
